@@ -12,4 +12,4 @@ def say_hello(name: str):
 
 @app.get("/demo")
 async def demo_endpoint():
-    return {"message": "This is the demo endpoint!"}
+    return {"message": "This is the !"}
