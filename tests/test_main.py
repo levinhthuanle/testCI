@@ -16,3 +16,8 @@ def test_say_hello():
     response = client.get("/hello/World")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello, World!"}
+    
+def test_demo_endpoint():
+    response = client.get("/demo")
+    assert response.status_code == 200
+    assert response.json() == {"message": "This is the demo endpoint!"}
