@@ -13,7 +13,3 @@ def say_hello(name: str):
 @app.get("/demo")
 async def demo_endpoint():
     return {"message": "This is the demo endpoint!"}
-    
-@app.get("/goodbye/{name}")
-async def say_goodbye(name: str):
-    return {"message": f"Goodbye, {name}!"}
