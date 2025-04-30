@@ -12,3 +12,7 @@ def test_say_hello():
     response = client.get("/hello/ChatGPT")
     assert response.status_code == 200
     assert response.json() == {"message": "Hello, ChatGPT!"}
+    
+    response = client.get("/hello/World")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello, World!"}
