@@ -37,3 +37,16 @@ def test_add_item():
     response = client.get("/items")
     assert response.status_code == 200
     assert response.json() == {"items": ["apple", "banana"]}
+    
+def test_delete_item():
+    response = client.delete("/delete_item/apple")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Item 'apple' deleted successfully!"}
+    
+    response = client.get("/items")
+    assert response.status_code == 200
+    assert response.json() == {"items": ["banana"]}
+    
+    response = client.delete("/delete_item/orange")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Item 'orange' not found!"}
