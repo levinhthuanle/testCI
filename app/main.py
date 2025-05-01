@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 app = FastAPI()
+db = []
 
 @app.get("/")
 def read_root():
@@ -13,3 +14,12 @@ def say_hello(name: str):
 @app.get("/demo")
 async def demo_endpoint():
     return {"message": "This is the demo endpoint!"}
+
+@app.post("/add_item")
+async def add_item(item: str):
+    db.append(item)
+    return {"message": "Item added successfully!"}
+
+@app.get("/items")
+async def get_items():
+    return {"items": db}
