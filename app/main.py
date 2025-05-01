@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from app.model.model import Item
 app = FastAPI()
 db = []
 
@@ -16,8 +16,8 @@ async def demo_endpoint():
     return {"message": "This is the demo endpoint!"}
 
 @app.post("/add_item")
-async def add_item(item: str):
-    db.append(item)
+async def add_item(item: Item):
+    db.append(item.item)
     return {"message": "Item added successfully!"}
 
 @app.get("/items")
