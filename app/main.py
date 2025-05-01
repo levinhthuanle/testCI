@@ -23,3 +23,11 @@ async def add_item(item: Item):
 @app.get("/items")
 async def get_items():
     return {"items": db}
+
+@app.delete("/delete_item/{item_name}")
+async def delete_item(item_name: str):
+    if item_name in db:
+        db.remove(item_name)
+        return {"message": f"Item '{item_name}' deleted successfully!"}
+    else:
+        return {"message": f"Item '{item_name}' not found!"}
